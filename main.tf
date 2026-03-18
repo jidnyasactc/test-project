@@ -11,3 +11,13 @@ provider "aws" {
   # Configuration options
   region = "us-east-1"
 }
+
+
+terraform{
+  backend "s3"{
+    bucket = "tfstate-test-bucket-march"
+    key = "non-prod/tfstate/terraform.tfstate"
+    region = "us-east-1"
+    use_lockfile = true
+  }
+}
